@@ -1,0 +1,42 @@
+<?xml version='1.0' encoding='UTF-8' ?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:h="http://xmlns.jcp.org/jsf/html"
+      xmlns:p="http://primefaces.org/ui"
+      
+      >
+   <h:head>
+       <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.3.1/dist/css/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous"></link>
+        <link href="style.css" rel="stylesheet" type="text/css"/>
+        <link href="bootstrap.min.css" rel="stylesheet" type="text/css"/>
+    <title>Registro de Profesores</title>
+</h:head>
+    <body>
+        <div>
+            <h:form>
+              <h2>Consultas </h2>
+               <p:dataTable var="pr" value="#{ProfesorUI.listaProfesor}" >
+                 <p:column headerText="Id">
+                     <h:outputText value="#{pr.idProfesor}" />
+            </p:column>
+                   <p:column headerText="Nombre">
+                     <h:outputText value="#{pr.nombre}" />
+            </p:column>
+
+            <p:column headerText="Apellido paterno">
+                <h:outputText value="#{pr.apP}" />
+            </p:column>
+
+                   <p:column headerText="Apellido Materno">
+                       <h:outputText value="#{pr.apM}" />
+            </p:column>
+
+            <p:column headerText="RFC">
+                <h:outputText value="#{pr.rfc}" />
+            </p:column>   
+              </p:dataTable>
+            </h:form>
+            
+        </div>
+    </body>
+</html>
