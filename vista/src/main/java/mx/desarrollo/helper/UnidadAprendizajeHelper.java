@@ -11,6 +11,7 @@ package mx.desarrollo.helper;
  */
 import java.io.IOException;
 import java.io.Serializable;
+import java.util.List;
 import javax.faces.context.FacesContext;
 import mx.desarrollo.entidad.UnidadAprendizaje;
 import mx.desarrollo.integracion.ServiceFacadeLocator;
@@ -28,4 +29,8 @@ public class UnidadAprendizajeHelper implements Serializable{
         UnidadAprendizaje unidadAprendizaje = new UnidadAprendizaje(Id,nombre, horaC, horaT, horaL);
         ServiceFacadeLocator.getInstanceFacadeUnidadAprendizaje().guardarUnidadAprendizaje(unidadAprendizaje); 
     }
+    
+     public List<UnidadAprendizaje> Mostrar(){
+        return ServiceFacadeLocator.getInstanceFacadeUnidadAprendizaje().mostrarUnidadAprendizaje();
+        }
 }

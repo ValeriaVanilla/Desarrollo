@@ -5,6 +5,7 @@
  */
 package mx.desarrollo.facade;
 
+import java.util.List;
 import mx.desarrollo.delegate.DelegateUnidadAprendizaje;
 import mx.desarrollo.entidad.UnidadAprendizaje;
 /**
@@ -21,6 +22,10 @@ public class FacadeUnidadAprendizaje {
     
     public void guardarUnidadAprendizaje(UnidadAprendizaje unidadaprendizaje){
         delegateUnidadAprendizaje.saveUnidadAprendizaje(unidadaprendizaje);
+    }
+    
+    public List<UnidadAprendizaje> mostrarUnidadAprendizaje(){
+    return delegateUnidadAprendizaje.MostrarUnidadAprendizaje();
     }
     
 }

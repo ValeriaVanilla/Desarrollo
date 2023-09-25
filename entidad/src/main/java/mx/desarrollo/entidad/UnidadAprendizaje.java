@@ -70,7 +70,7 @@ public class UnidadAprendizaje implements Serializable {
         this.horaL = horaL;
         this.profesorList = profesorList;
     }
-
+    
     
     
     public UnidadAprendizaje(Integer idUnidadAprendizaje) {

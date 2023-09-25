@@ -14,6 +14,7 @@ import javax.faces.application.FacesMessage;
 import javax.faces.bean.ManagedBean;
 import javax.faces.bean.SessionScoped;
 import mx.desarrollo.entidad.Profesor;
+import mx.desarrollo.entidad.UnidadAprendizaje;
 import mx.desarrollo.helper.ProfesorHelper;
 
 /**
@@ -26,6 +27,8 @@ import mx.desarrollo.helper.ProfesorHelper;
     private ProfesorHelper profesorHelper;
     private Profesor profesor;
     private List<Profesor> listaProfesor = new ArrayList<>();
+   // private List<UnidadAprendizaje> seleccion = new ArrayList<>();
+   // private List<Integer> seleccionId = new ArrayList<>();
 
     public List<Profesor> getListaProfesor() {
         return listaProfesor;
@@ -34,11 +37,24 @@ import mx.desarrollo.helper.ProfesorHelper;
     public void setListaProfesor(List<Profesor> listaProfesor) {
         this.listaProfesor = listaProfesor;
     }
+
+   /* public List<UnidadAprendizaje> getSeleccion() {
+        return seleccion;
+    }
+
+    public void setSeleccion(List<UnidadAprendizaje> seleccion) {
+        this.seleccion = seleccion;
+    } */
+    
+    
     
     public ProfesorBeanUI() {
         profesorHelper = new ProfesorHelper();
         profesor = new Profesor();
-        listaProfesor = profesorHelper.Mostrar();
+        listaProfesor = profesorHelper.Mostrar(); 
+       /* for(UnidadAprendizaje UA: seleccion){
+        seleccionId.add(UA.getIdUnidadAprendizaje());
+        }*/
     }
 
     public Profesor getProfesor() {
@@ -51,9 +67,8 @@ import mx.desarrollo.helper.ProfesorHelper;
     
     public void guardar(){
     profesorHelper.Altas(profesor.getIdProfesor(), profesor.getNombre(), profesor.getApP(), profesor.getApM(), profesor.getRfc());
-    }
     
-   
+    }
     
 
 }

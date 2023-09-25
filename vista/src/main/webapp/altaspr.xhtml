@@ -55,42 +55,39 @@
 
                         <div class="form-group">
                             <p:outputLabel for="idProfesor" value="ID Profesor:"/> <br/>
-                            <p:inputText id="idProfesor" value="#{profesorController.profesor.idProfesor}" placeholder="Ingresa ID Ejem.12345" required="true"/>
+                            <p:inputText id="idProfesor" value="#{ProfesorUI.profesor.idProfesor}" placeholder="Ingresa ID Ejem.12345" required="true"/>
                             <p:keyFilter regEx="/^\d+$/" />
                         </div>
 
                         <div class="form-group">
                             <p:outputLabel for="nombre" value="Nombre:"/> <br/>
-                            <p:inputText id="nombre" value="#{profesorController.profesor.nombre}" placeholder="Ingresa Nombre(s)" required="true"/>
+                            <p:inputText id="nombre" value="#{ProfesorUI.profesor.nombre}" placeholder="Ingresa Nombre(s)" required="true"/>
                         </div>
 
                         <div class="form-group">
                             <p:outputLabel for="apellidoPaterno" value="Apellido Paterno:"/><br/>
-                            <p:inputText id="apellidoPaterno" value="#{profesorController.profesor.apellidoPaterno}" placeholder="Ingresa Apellido Paterno" required="true"/>
+                            <p:inputText id="apellidoPaterno" value="#{ProfesorUI.profesor.apP}" placeholder="Ingresa Apellido Paterno" required="true"/>
                         </div>
 
                         <div class="form-group">
                             <p:outputLabel for="apellidoMaterno" value="Apellido Materno:"/><br/>
-                            <p:inputText id="apellidoMaterno" value="#{profesorController.profesor.apellidoMaterno}" placeholder="Ingresa Apellido Materno" required="true"/>
+                            <p:inputText id="apellidoMaterno" value="#{ProfesorUI.profesor.apM}" placeholder="Ingresa Apellido Materno" required="true"/>
                         </div>
 
                         <div class="form-group">
                             <p:outputLabel for="rfc" value="RFC:"/> <br/>
-                            <p:inputText id="rfc" value="#{profesorController.profesor.rfc}" placeholder="Ejem.GOTI810823463" required="true"/>
+                            <p:inputText id="rfc" value="#{ProfesorUI.profesor.rfc}" placeholder="Ejem.GOTI810823463" required="true"/>
                         </div>
 
-                        <div class="form-group">
+                      <!--  <div class="form-group">
                             <p:outputLabel for="unidadAprendizaje" value="Unidad Aprendizaje:" /><br/>
-                            <p:selectOneMenu id="unidadAprendizaje" value="#{bean.unidadAprendizaje}" required="true">
-                                <f:selectItem itemLabel="Selecciona una Unidad Aprendizaje" itemValue="" />
-                                <f:selectItem itemLabel="Opción 1" itemValue="opcion1" />
-                                <f:selectItem itemLabel="Opción 2" itemValue="opcion2" />
-                           
-                            </p:selectOneMenu>
-                        </div>
+                            <p:selectCheckboxMenu  label="Elija las unnidades de aprendizaje" id="unidadAprendizaje" value="#{ProfesorUI.profesor.unidadAprendizajeList}" required="true">
+                                <f:selectItems value="#{UnidadAprendizajeUI.listaUnidad}"  var="UA" itemLabel="#{UA.nombreUnidad}" itemValue="#{UA.idUnidadAprendizaje}"/>
+                            </p:selectCheckboxMenu>
+                        </div>-->
 
                         <div class="btn-group" role="group" aria-label="">
-                            <p:commandButton type="submit" value="Registrar" action="#{profesorController.registrar}" update="messages" styleClass="btn btn-warning" oncomplete="PF('dialogNuevoAlumno').hide();"/>
+                            <p:commandButton type="submit" value="Registrar" action="#{ProfesorUI.guardar()}" update="messages" styleClass="btn btn-warning" oncomplete="PF('dialogNuevoAlumno').hide();"/>
                             <p:commandButton type="reset" value="Cancelar" styleClass="btn btn-light"/>
                             
                         </div>

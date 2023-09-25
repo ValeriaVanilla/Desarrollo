@@ -5,6 +5,7 @@
  */
 package mx.desarrollo.delegate;
 
+import java.util.List;
 import mx.desarrollo.entidad.UnidadAprendizaje;
 import mx.desarrollo.integracion.ServiceLocator;
 /**
@@ -19,4 +20,8 @@ public class DelegateUnidadAprendizaje {
     public void saveUnidadAprendizaje(UnidadAprendizaje unidadaprendizaje){
         ServiceLocator.getInstanceUnidadAprendizajeDAO().save(unidadaprendizaje);
 }
-}
+    
+    public List<UnidadAprendizaje> MostrarUnidadAprendizaje(){
+    return ServiceLocator.getInstanceUnidadAprendizajeDAO().findAll();
+    }
+ }
