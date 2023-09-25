@@ -13,6 +13,7 @@ import javax.annotation.PostConstruct;
 import javax.faces.application.FacesMessage;
 import javax.faces.bean.ManagedBean;
 import javax.faces.bean.SessionScoped;
+import javax.faces.context.FacesContext;
 import mx.desarrollo.entidad.Profesor;
 import mx.desarrollo.entidad.UnidadAprendizaje;
 import mx.desarrollo.helper.ProfesorHelper;
@@ -72,6 +73,8 @@ import mx.desarrollo.helper.ProfesorHelper;
     
     public void guardar(){
     profesorHelper.Altas(profesor.getIdProfesor(), profesor.getNombre(), profesor.getApP(), profesor.getApM(), profesor.getRfc());
+    FacesContext.getCurrentInstance().addMessage(null, new FacesMessage(FacesMessage.SEVERITY_INFO, "Con Éxito", "Registrado correctamente"));
+    profesor = new Profesor();
     
     }
     

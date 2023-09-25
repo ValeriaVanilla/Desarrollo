@@ -40,43 +40,54 @@
         </ul>
  </nav>
  
-    <br/><br/>
-
+    <br/><br/> 
     <div class="row justify-content-center align-items-center">
-        <h:form >
+   <h:panelGrid id="datos">
+   
+        <h:form id="registro">
+            <p:messages id="messages" showDetail="true" showSummary="true" autoUpdate="true" closable="true" />
             <div class="col-md-4"></div>
             <div class="col-md-18">
                 <div class="card">
+                  
                     <div class="card-header">
                         Registro de Profesores
                     </div>
-                    <div class="card-body">
-                        <p:messages id="messages" showDetail="true" showSummary="true" autoUpdate="true" closable="true" />
+                   
+                    <div class="card-body" >
+                        
+                       
 
                         <div class="form-group">
                             <p:outputLabel for="idProfesor" value="ID Profesor:"/> <br/>
                             <p:inputText id="idProfesor" value="#{ProfesorUI.profesor.idProfesor}" placeholder="Ingresa ID Ejem.12345" required="true"/>
+                            
                             <p:keyFilter regEx="/^\d+$/" />
+                            <p:message for="idProfesor"/>
                         </div>
 
                         <div class="form-group">
                             <p:outputLabel for="nombre" value="Nombre:"/> <br/>
                             <p:inputText id="nombre" value="#{ProfesorUI.profesor.nombre}" placeholder="Ingresa Nombre(s)" required="true"/>
+                             <p:message for="nombre"/>
                         </div>
 
                         <div class="form-group">
                             <p:outputLabel for="apellidoPaterno" value="Apellido Paterno:"/><br/>
                             <p:inputText id="apellidoPaterno" value="#{ProfesorUI.profesor.apP}" placeholder="Ingresa Apellido Paterno" required="true"/>
+                             <p:message for="apellidoPaterno"/>
                         </div>
 
                         <div class="form-group">
                             <p:outputLabel for="apellidoMaterno" value="Apellido Materno:"/><br/>
                             <p:inputText id="apellidoMaterno" value="#{ProfesorUI.profesor.apM}" placeholder="Ingresa Apellido Materno" required="true"/>
+                             <p:message for="apellidoMaterno"/>
                         </div>
 
                         <div class="form-group">
                             <p:outputLabel for="rfc" value="RFC:"/> <br/>
                             <p:inputText id="rfc" value="#{ProfesorUI.profesor.rfc}" placeholder="Ejem.GOTI810823463" required="true"/>
+                             <p:message for="rfc"/>
                         </div>
 
                       <!--  <div class="form-group">
@@ -87,15 +98,19 @@
                         </div>-->
 
                         <div class="btn-group" role="group" aria-label="">
-                            <p:commandButton type="submit" value="Registrar" action="#{ProfesorUI.guardar()}" update="messages" styleClass="btn btn-warning" oncomplete="PF('dialogNuevoAlumno').hide();"/>
-                            <p:commandButton type="reset" value="Cancelar" styleClass="btn btn-light"/>
-                            
-                        </div>
+                            <p:commandButton type="submit" value="Registrar" action="#{ProfesorUI.guardar()}" update="registro" styleClass="btn btn-warning" oncomplete="PF('dialogNuevoAlumno').hide();"/>
+                           <p:commandButton id="cancelButton" type="reset" value="Cancelar" styleClass="btn btn-light" />
+
+                          
+                        </div>  
                     </div>
                 </div>
             </div>
+            
             <div class="col-md-4"></div>
+         
         </h:form>
-    </div>
+  
+    </h:panelGrid>  </div>
     </h:body>
 </html>
