@@ -30,4 +30,8 @@ public class FacadeProfesor {
     return delegateProfesor.MostrarProfesor();
     }
     
+    public void bajasProfesor(Profesor profesor){
+        delegateProfesor.BajasProfesor(profesor);
+    }
+    
 }

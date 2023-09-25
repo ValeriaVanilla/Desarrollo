@@ -28,4 +28,8 @@ public class DelegateProfesor {
            return ServiceLocator.getInstanceProfesorDAO().findAll();
               
 }
+    
+    public void BajasProfesor(Profesor profesor){
+    ServiceLocator.getInstanceProfesorDAO().delete(profesor);
+    }
 }

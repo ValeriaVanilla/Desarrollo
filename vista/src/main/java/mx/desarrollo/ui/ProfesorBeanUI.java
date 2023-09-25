@@ -51,7 +51,12 @@ import mx.desarrollo.helper.ProfesorHelper;
     public ProfesorBeanUI() {
         profesorHelper = new ProfesorHelper();
         profesor = new Profesor();
-        listaProfesor = profesorHelper.Mostrar(); 
+        listaProfesor = profesorHelper.Mostrar();
+        List<Profesor> Prueba = new ArrayList();
+        Prueba = listaProfesor;
+        for(int x = 0; x <listaProfesor.size()- 1;x++){
+            System.out.println(Prueba.get(x));
+        }
        /* for(UnidadAprendizaje UA: seleccion){
         seleccionId.add(UA.getIdUnidadAprendizaje());
         }*/
@@ -70,5 +75,9 @@ import mx.desarrollo.helper.ProfesorHelper;
     
     }
     
+    public void bajas(Profesor profesor){
+    profesorHelper.Bajas(profesor);
+    listaProfesor = profesorHelper.Mostrar();
+    }
 
 }

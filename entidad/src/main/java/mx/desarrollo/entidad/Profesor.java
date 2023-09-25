@@ -28,12 +28,14 @@ import javax.xml.bind.annotation.XmlTransient;
 @Table(name = "profesor")
 @XmlRootElement
 @NamedQueries({
-    @NamedQuery(name = "Profesor.findAll", query = "SELECT p FROM Profesor p")
+      @NamedQuery(name = "Profesor.findAll", query = "SELECT p FROM Profesor p ORDER BY p.nombre")
     , @NamedQuery(name = "Profesor.findByIdProfesor", query = "SELECT p FROM Profesor p WHERE p.idProfesor = :idProfesor")
     , @NamedQuery(name = "Profesor.findByNombre", query = "SELECT p FROM Profesor p WHERE p.nombre = :nombre")
     , @NamedQuery(name = "Profesor.findByApP", query = "SELECT p FROM Profesor p WHERE p.apP = :apP")
     , @NamedQuery(name = "Profesor.findByApM", query = "SELECT p FROM Profesor p WHERE p.apM = :apM")
     , @NamedQuery(name = "Profesor.findByRfc", query = "SELECT p FROM Profesor p WHERE p.rfc = :rfc")})
+    
+
 public class Profesor implements Serializable {
 
     private static final long serialVersionUID = 1L;

@@ -31,5 +31,9 @@ public class ProfesorHelper implements Serializable{
     public List<Profesor> Mostrar(){
         return ServiceFacadeLocator.getInstanceFacadeProfesor().mostrarProfesor();
         }
+    
+    public void Bajas(Profesor profesor){
+        ServiceFacadeLocator.getInstanceFacadeProfesor().bajasProfesor(profesor);
+    }
     }
     

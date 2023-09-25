@@ -6,8 +6,12 @@
 package mx.desarrollo.DAO;
 
 
+import java.util.List;
 import mx.desarrollo.entidad.Profesor;
 import mx.desarrollo.persistencia.AbstractDAO;
+import mx.desarrollo.persistencia.HibernateUtil;
+import org.hibernate.HibernateException;
+import org.hibernate.Query;
 
 
 /**
@@ -20,4 +24,21 @@ public class ProfesorDAO extends AbstractDAO<Integer, Profesor> {
         throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
     }
     
+      @Override
+    public List<Profesor> findAll() {
+        System.out.println("FindAll ----------");
+        List<Profesor> objects = null;
+        try {
+            HibernateUtil.getSession();
+            HibernateUtil.beingTransaccion();
+            Query query = HibernateUtil.getSession().createQuery("FROM Profesor AS p ORDER BY p.nombre");
+            objects = query.list();
+
+        } catch (HibernateException e) {
+            HibernateUtil.rollbackTransaction();
+        } finally {
+            HibernateUtil.closeSession();
+        }
+        return objects;
+    }
 }
