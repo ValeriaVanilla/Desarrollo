@@ -28,6 +28,8 @@ import mx.desarrollo.helper.ProfesorHelper;
     private ProfesorHelper profesorHelper;
     private Profesor profesor;
     private List<Profesor> listaProfesor = new ArrayList<>();
+    private Profesor Profesorfiltrado;
+    private Profesor ProfesorSeleccion;
    // private List<UnidadAprendizaje> seleccion = new ArrayList<>();
    // private List<Integer> seleccionId = new ArrayList<>();
 
@@ -38,6 +40,25 @@ import mx.desarrollo.helper.ProfesorHelper;
     public void setListaProfesor(List<Profesor> listaProfesor) {
         this.listaProfesor = listaProfesor;
     }
+
+    public Profesor getProfesorSeleccion() {
+        return ProfesorSeleccion;
+    }
+
+    public void setProfesorSeleccion(Profesor ProfesorSeleccion) {
+        this.ProfesorSeleccion = ProfesorSeleccion;
+    }
+
+    public Profesor getProfesorfiltrado() {
+        return Profesorfiltrado;
+    }
+
+    public void setProfesorfiltrado(Profesor Profesorfiltrado) {
+        this.Profesorfiltrado = Profesorfiltrado;
+    }
+    
+    
+    
 
    /* public List<UnidadAprendizaje> getSeleccion() {
         return seleccion;
@@ -53,6 +74,8 @@ import mx.desarrollo.helper.ProfesorHelper;
         profesorHelper = new ProfesorHelper();
         profesor = new Profesor();
         listaProfesor = profesorHelper.Mostrar();
+        ProfesorSeleccion = new Profesor();
+      
         List<Profesor> Prueba = new ArrayList();
         Prueba = listaProfesor;
         for(int x = 0; x <listaProfesor.size()- 1;x++){
@@ -78,9 +101,13 @@ import mx.desarrollo.helper.ProfesorHelper;
     
     }
     
-    public void bajas(Profesor profesor){
-    profesorHelper.Bajas(profesor);
+    public void bajas(){
+    profesorHelper.Bajas(ProfesorSeleccion);
+    FacesContext.getCurrentInstance().addMessage(null, new FacesMessage(FacesMessage.SEVERITY_INFO, "Con Éxito", "Se eliminó correctamente"));
     listaProfesor = profesorHelper.Mostrar();
+    ProfesorSeleccion = new Profesor();
     }
+    
+   
 
 }

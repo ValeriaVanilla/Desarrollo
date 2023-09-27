@@ -22,24 +22,25 @@
             
            
             div.login{
-                position: absolute;
-                top:0;
+                position: center;
+                top:40px;
                 bottom: 0;
-                left: 0;
-                right: 0;
-                height: 35%;
-                width: 25%;
-                padding: 25px;
-                margin: auto;
-                background: white;
-                border-radius: 5px;
-                box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
+                left: 0px;
+             margin: auto;
+             width: 400px;
+             heigth: 500px;
+             background-color:#f8f9fa;
+             border-radius: 20px 100px;
+             padding: 80px 50px;
+             box-shadow: 10px 10px 21px -6px rgba(0,0,0, 0.2);
             }
             .logo{
-                width: 150px;
+                width: 180px;
             }
             .form-control:focus{
-                border-color:#007738;
+                border-color:#38761F;
+                border-radius: 20px;
+                border:1px solid #adb5db;
             }
             .btn-success{
                 text-shadow: none;
@@ -48,24 +49,31 @@
     </h:head>
 
     <h:body>
+        
+        
+        <br/><br/><br/>
         <div class = "row">
            
             <h:form>
                
                 <p:messages id="messages" showDetail="true" closable="true">
-                     
+                      
                 </p:messages>
+                
                 <div class="login">
-                    <div class="panel-header">
-                        <p:graphicImage url="resources/uabcl.png" class="logo" />
-                    </div>
+                    <p:graphicImage url="resources/logo.png" class="logo" />
+                    <h1>Bienvenidos</h1>
+                    <div class="login-container">
+                        <h4>Iniciar Sesión</h4></div>
                     <div class="panel-body">
+                       
                         <div class=" form-group">
                             <p:inputText class ="form-control" placeholder ="Correo:" autocomplete="false" value ="#{loginUI.usuario.correo}" />
-                        </div>
+                        </div><br/>
                         <div class="form-group">
                             <p:password class ="form-control" placeholder="Contraseña: " value="#{loginUI.usuario.contrasena}" />
                         </div>
+                        <br/>
                         <p:commandButton update="messages" class = "btn btn-success" value ="Iniciar sesion" actionListener ="#{loginUI.login()}" />
 
                     </div>

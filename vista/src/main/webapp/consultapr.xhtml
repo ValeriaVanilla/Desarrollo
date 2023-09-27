@@ -24,7 +24,7 @@
              <a class="nav-link" href="./menuR.xhtml">Registro</a>
          </li>
          <li class="nav-item">
-             <b> <a class="nav-link" href="./consultapr.xhtml">Consultas</a></b>
+             <b> <a class="nav-link" href="./menuC.xhtml">Consultas</a></b>
          </li> 
          <li class="nav-item">
              <a class="nav-link" href="./modificaciones.xhtml">Modificaciones</a>
@@ -32,14 +32,14 @@
      </ul> 
         <ul class="nav navbar-nav ml-auto">
         <li class="nav-item">
-            <a class="nav-link" href="">Cerrar Sesión</a>
+            <a class="nav-link" href="./login.xhtml">Cerrar Sesión</a>
         </li>
         </ul>
  </nav>
         
         <div>
             <h:form id="consulta">
-              <h2>Consultas </h2>
+              
                <p:dataTable var="pr" value="#{ProfesorUI.listaProfesor}" >
                  <p:column headerText="Id">
                      <h:outputText value="#{pr.idProfesor}" />

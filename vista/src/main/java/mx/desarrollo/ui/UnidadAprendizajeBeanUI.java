@@ -13,6 +13,7 @@ import javax.annotation.PostConstruct;
 import javax.faces.application.FacesMessage;
 import javax.faces.bean.ManagedBean;
 import javax.faces.bean.SessionScoped;
+import javax.faces.context.FacesContext;
 import mx.desarrollo.entidad.UnidadAprendizaje;
 import mx.desarrollo.helper.UnidadAprendizajeHelper;
 
@@ -51,5 +52,7 @@ import mx.desarrollo.helper.UnidadAprendizajeHelper;
     
     public void guardar(){
     unidadAprendizajeHelper.Altas(unidadAprendizaje.getIdUnidadAprendizaje(), unidadAprendizaje.getNombreUnidad(), unidadAprendizaje.getHoraC(), unidadAprendizaje.getHoraT() ,unidadAprendizaje.getHoraL());
+    FacesContext.getCurrentInstance().addMessage(null, new FacesMessage(FacesMessage.SEVERITY_INFO, "Con Éxito", "Registrado correctamente"));
+    unidadAprendizaje = new UnidadAprendizaje();
     }
 }

@@ -23,7 +23,7 @@ public class ProfesorHelper implements Serializable{
     /**
      * Metodo para hacer Altas llamara a la instancia de ProfesorFacade
      */
-    public void Altas(int IdProfesor, String nombre, String apP, String apM, String rfc){
+    public void Altas(int IdProfesor, String nombre, String apP, String apM, String rfc){     
         Profesor profesor = new Profesor(IdProfesor,nombre, apP, apM, rfc);
         ServiceFacadeLocator.getInstanceFacadeProfesor().guardarProfesor(profesor); 
     }

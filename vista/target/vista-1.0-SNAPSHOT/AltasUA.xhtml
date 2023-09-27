@@ -27,7 +27,7 @@
              <b>  <a class="nav-link" href="./menuR.xhtml">Registro</a></b>
          </li>
          <li class="nav-item">
-             <a class="nav-link" href="./consultapr.xhtml">Consultas</a>
+             <a class="nav-link" href="./menuC.xhtml">Consultas</a>
          </li> 
          <li class="nav-item">
              <a class="nav-link" href="./modificaciones.xhtml">Modificaciones</a>
@@ -43,7 +43,8 @@
     <br/><br/>
 
     <div class="row justify-content-center align-items-center">
-        <h:form >
+        <h:form id="registroU">
+            <p:messages id="m" showDetail="true" showSummary="true" autoUpdate="true" closable="true" />
             <div class="col-md-4"></div>
             <div class="col-md-18">
                 <div class="card">
@@ -81,8 +82,8 @@
 
 
                         <div class="btn-group" role="group" aria-label="">
-                            <p:commandButton type="submit" value="Registrar" action="#{UnidadAprendizajeUI.guardar()}" update="messages" styleClass="btn btn-warning" oncomplete="PF('dialogNuevoAlumno').hide();"/>
-                            <p:commandButton type="reset" value="Cancelar" styleClass="btn btn-light"/>
+                            <p:commandButton type="submit" value="Registrar" action="#{UnidadAprendizajeUI.guardar()}" update="registroU" styleClass="btn btn-warning" oncomplete="PF('dialogNuevoAlumno').hide();"/>
+                           <p:commandButton id="cancelButton" type="reset" value="Cancelar" styleClass="btn btn-light" />
                             
                         </div>
                     </div>

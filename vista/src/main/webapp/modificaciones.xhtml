@@ -25,7 +25,7 @@
                     <a class="nav-link" href="./menuR.xhtml">Registro</a>
                 </li>
                 <li class="nav-item">
-                    <a class="nav-link" href="./consultapr.xhtml">Consultas</a>
+                    <a class="nav-link" href="./menuC.xhtml">Consultas</a>
                 </li> 
                 <li class="nav-item">
                     <b>  <a class="nav-link" href="./modificaciones.xhtml">Modificaciones</a></b>
@@ -40,8 +40,9 @@
 
         <div>
             <h:form id="Modificaciones">
+                <p:messages id="messages" showDetail="true" showSummary="true" autoUpdate="true" closable="true" />
                 <div class="card-header">
-                    Modificaciones
+                    
                 </div>    
                 <p:dataTable id="Modificaciones"  paginatorPosition="top"             
                              var="pr" value="#{ProfesorUI.listaProfesor}" 
@@ -53,7 +54,7 @@
                         <p:outputPanel>
                             <h:outputText value="Buscar "/>
                             <p:inputText id="globalFilter" onkeyup="PF('tablaProfesorBuscar').filter()"
-                                         style="width: 500px;" placeholder=" Buscar Por Unidad Academica"/>
+                                         style="width: 500px;" placeholder=" Buscar"/>
                         </p:outputPanel>
                     </f:facet>
                 
@@ -77,12 +78,12 @@
                     </p:column>   
                     <p:column headerText="Eliminar" style="text-align: center">
                         <p:commandButton icon="ui-icon-trash" title="Eliminar" oncomplete="PF('dialogoEliminar').show();" >
-                            <f:setPropertyActionListener target="#{ProfesorUI.bajas(pr)}" value="#{pr}"/>
+                            <f:setPropertyActionListener value="#{pr}" target="#{ProfesorUI.profesorSeleccion}"  />
                         </p:commandButton>
                     </p:column>
                     <p:column headerText="Modificar" style="text-align: center">
                         <p:commandButton icon="ui-icon-pencil"  title="Modificar" oncomplete="PF('dialogoModificar').show();" >
-                            <f:setPropertyActionListener target="#{ProfesorUI.modificar(pr)}" value="#{pr}"/>
+                            <f:setPropertyActionListener target="#{ProfesorUI.modificar()}" value="#{pr}"/>
                         </p:commandButton>
                     </p:column>
                 </p:dataTable>
@@ -94,7 +95,7 @@
             <h:form id="formEliminar">
                 <p:dialog id="dlgEliminar" header="Eliminar Profesor" widgetVar="dialogoEliminar" resizable="false" showEffect="fade" hideEffect="explode" modal="true">
                     <h:outputText value="Desea eliminar este registro?"/>
-                    <p:commandButton  value="Si" actionListener="#{ProfesorUI.bajas(pr)}"  oncomplete="PF('dialogoEliminar').hide();"/>
+                    <p:commandButton  value="Si" actionListener="#{ProfesorUI.bajas()}" update="Modificaciones" oncomplete="PF('dialogoEliminar').hide();"/>
                     <p:commandButton  value="No" onclick="PF('dialogoEliminar').hide();"/>
                 </p:dialog>
             </h:form>
