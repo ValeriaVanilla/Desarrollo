@@ -38,6 +38,10 @@ public class FacadeProfesor {
     return delegateProfesor.listaRFC();
     }
     
+    public List<Integer> busquedaE(String b){
+    return delegateProfesor.busquedaE(b);
+    }
+    
     public void bajasProfesor(Profesor profesor){
         delegateProfesor.BajasProfesor(profesor);
     }

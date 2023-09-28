@@ -41,6 +41,8 @@ public class DelegateProfesor {
            return ServiceLocator.getInstanceProfesorDAO().findRFC();
               
 }
-      
+       public List<Integer> busquedaE(String b){
+           return ServiceLocator.getInstanceProfesorDAO().busquedaE(b);
+       }  
     
 }

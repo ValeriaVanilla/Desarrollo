@@ -76,6 +76,24 @@ public class ProfesorDAO extends AbstractDAO<Integer, Profesor> {
         }
         return objects;
     }
+      
+    public List<Integer> busquedaE(String b) {
+        System.out.println("busquedaE ----------");
+        List<Integer> objects = null;
+        try {
+            HibernateUtil.getSession();
+            HibernateUtil.beingTransaccion();
+            Query query = HibernateUtil.getSession().createQuery("SELECT p.Id_Profesor FROM profesor AS p JOiN imparte as i ON p.Id_Profesor = i.Id_PR JOIN unidad_aprendizaje AS ua ON ua.Id_Unidad_Aprendizaje = i.Id_UA WHERE ua.Nombre_Unidad LIKE '" + b+"%'" );
+            objects = query.list();
+
+        } catch (HibernateException e) {
+            HibernateUtil.rollbackTransaction();
+        } finally {
+            HibernateUtil.closeSession();
+        }
+        return objects;
+    }
+      
 }
 
 

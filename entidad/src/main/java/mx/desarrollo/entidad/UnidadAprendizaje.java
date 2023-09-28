@@ -153,7 +153,7 @@ public class UnidadAprendizaje implements Serializable {
 
     @Override
     public String toString() {
-        return nombreUnidad;
+        return "" + nombreUnidad;
     }
     
 }

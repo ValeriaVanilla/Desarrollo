@@ -3,12 +3,12 @@
 <html xmlns="http://www.w3.org/1999/xhtml"
       xmlns:h="http://xmlns.jcp.org/jsf/html"
       xmlns:p="http://primefaces.org/ui"
-          
+
       xmlns:f="http://xmlns.jcp.org/jsf/core">
     <h:head>
         <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.3.1/dist/css/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous"></link>
         <link href="style.css" rel="stylesheet" type="text/css"/>
- <style>
+        <style>
             .clean-row {
                 background-color:#FFFFFF;
 
@@ -30,25 +30,25 @@
 
 
     <h:body>
-    <nav class="navbar navbar-expand-lg navbar-dark bg-primary" >
+        <nav class="navbar navbar-expand-lg navbar-dark bg-primary" >
             <ul class="nav navbar-nav">
                 <li class="nav-item ">
                     <a class="nav-link" href="./index.xhtml">Black Class </a>
                 </li>
                 <li class="nav-item">
-                   <a class="nav-link" href="./index.xhtml">Inicio</a>
+                    <a class="nav-link" href="./index.xhtml">Inicio</a>
                 </li>
                 <li class="nav-item">
-                   <b><b>       <a class="nav-link" href="./profesores.xhtml">Profesores</a></b></b>
+                    <b><b>       <a class="nav-link" href="./profesores.xhtml">Profesores</a></b></b>
                 </li>
                 <li class="nav-item">
                     <a class="nav-link" href="./unidades.xhtml">Unidades de Aprendizaje</a>
                 </li> 
             </ul> 
-          
+
         </nav>
- 
-  <div class="d-flex justify-content-center align-items-center">
+
+        <div class="d-flex justify-content-center align-items-center">
             <div class="alert alert-dismissible alert-light" >
                 <div class="d-flex justify-content-center align-items-center" >
                     <h5 class="alert-heading" > Profesores</h5></div>
@@ -57,75 +57,75 @@
         </div>
         <p:tabView>
             <p:tab title="Registro de Profesores">
-               
+
                 <h:form >
-            <div class="col-md-6"></div>
-            <div class="col-md-11">
-                <div class="card">
-                    <div class="card-header"> 
-                        <h:outputText value="* Campos obligatorios" />
-                        
+                    <div class="col-md-6"></div>
+                    <div class="col-md-11">
+                        <div class="card">
+                            <div class="card-header"> 
+                                <h:outputText value="* Campos obligatorios" />
+
+                            </div>
+                            <div class="card-body">
+                                <p:messages id="messages" showDetail="true" showSummary="true" autoUpdate="true" closable="true" />
+
+                                <div class="form-group">
+                                    <p:outputLabel for="idProfesor" value="ID Profesor:"/> <br/>
+                                    <p:inputText id="idProfesor" value="#{ProfesorUI.profesor.idProfesor}" placeholder="Ingresa ID Ejem.12345" required="true"/>
+                                    <p:keyFilter regEx="/^\d+$/" />
+                                </div>
+
+                                <div class="form-group">
+                                    <p:outputLabel for="nombre" value="Nombre:"/> <br/>
+                                    <p:inputText id="nombre" value="#{ProfesorUI.profesor.nombre}" placeholder="Ingresa Nombre(s)" required="true"/>
+                                </div>
+
+                                <div class="form-group">
+                                    <p:outputLabel for="apellidoPaterno" value="Apellido Paterno:"/><br/>
+                                    <p:inputText id="apellidoPaterno" value="#{ProfesorUI.profesor.apP}" placeholder="Ingresa Apellido Paterno" required="true"/>
+                                </div>
+
+                                <div class="form-group">
+                                    <p:outputLabel for="apellidoMaterno" value="Apellido Materno:"/><br/>
+                                    <p:inputText id="apellidoMaterno" value="#{ProfesorUI.profesor.apM}" placeholder="Ingresa Apellido Materno" required="true"/>
+                                </div>
+
+                                <div class="form-group">
+                                    <p:outputLabel for="rfc" value="RFC:"/> <br/>
+                                    <p:inputText id="rfc" value="#{ProfesorUI.profesor.rfc}" placeholder="Ejem.GOTI810823463" required="true"/>
+                                </div>
+
+                                <div class="form-group">
+                                    <p:outputLabel for="unidadAprendizaje" value="Unidad Aprendizaje:" /><br/>
+                                    <p:selectCheckboxMenu  label="Elija las unnidades de aprendizaje" id="unidadAprendizaje" value="#{ProfesorUI.seleccion}" required="true">
+                                        <f:selectItems value="#{UnidadAprendizajeUI.listaUnidad}"  var="UA" itemLabel="#{UA.nombreUnidad}" itemValue="#{UA.idUnidadAprendizaje}"/>
+                                    </p:selectCheckboxMenu>
+                                </div>
+
+                                <div class="btn-group" role="group" aria-label="">
+                                    <p:commandButton type="submit" value="Registrar" action="#{ProfesorUI.guardar()}" update="messages" styleClass="btn btn-primaty" oncomplete="PF('dialogNuevoAlumno').hide();"/>
+                                    <p:commandButton type="reset" value="Cancelar" styleClass="btn btn-light"/>
+
+                                </div>
+                            </div>
+                        </div>
                     </div>
-                    <div class="card-body">
-                        <p:messages id="messages" showDetail="true" showSummary="true" autoUpdate="true" closable="true" />
-
-                        <div class="form-group">
-                            <p:outputLabel for="idProfesor" value="ID Profesor:"/> <br/>
-                            <p:inputText id="idProfesor" value="#{ProfesorUI.profesor.idProfesor}" placeholder="Ingresa ID Ejem.12345" required="true"/>
-                            <p:keyFilter regEx="/^\d+$/" />
-                        </div>
-
-                        <div class="form-group">
-                            <p:outputLabel for="nombre" value="Nombre:"/> <br/>
-                            <p:inputText id="nombre" value="#{ProfesorUI.profesor.nombre}" placeholder="Ingresa Nombre(s)" required="true"/>
-                        </div>
-
-                        <div class="form-group">
-                            <p:outputLabel for="apellidoPaterno" value="Apellido Paterno:"/><br/>
-                            <p:inputText id="apellidoPaterno" value="#{ProfesorUI.profesor.apP}" placeholder="Ingresa Apellido Paterno" required="true"/>
-                        </div>
-
-                        <div class="form-group">
-                            <p:outputLabel for="apellidoMaterno" value="Apellido Materno:"/><br/>
-                            <p:inputText id="apellidoMaterno" value="#{ProfesorUI.profesor.apM}" placeholder="Ingresa Apellido Materno" required="true"/>
-                        </div>
-
-                        <div class="form-group">
-                            <p:outputLabel for="rfc" value="RFC:"/> <br/>
-                            <p:inputText id="rfc" value="#{ProfesorUI.profesor.rfc}" placeholder="Ejem.GOTI810823463" required="true"/>
-                        </div>
-
-                       <div class="form-group">
-                            <p:outputLabel for="unidadAprendizaje" value="Unidad Aprendizaje:" /><br/>
-                            <p:selectCheckboxMenu  label="Elija las unnidades de aprendizaje" id="unidadAprendizaje" value="#{ProfesorUI.seleccion}" required="true">
-                                <f:selectItems value="#{UnidadAprendizajeUI.listaUnidad}"  var="UA" itemLabel="#{UA.nombreUnidad}" itemValue="#{UA.idUnidadAprendizaje}"/>
-                            </p:selectCheckboxMenu>
-                        </div>
-
-                        <div class="btn-group" role="group" aria-label="">
-                            <p:commandButton type="submit" value="Registrar" action="#{ProfesorUI.guardar()}" update="messages" styleClass="btn btn-primaty" oncomplete="PF('dialogNuevoAlumno').hide();"/>
-                            <p:commandButton type="reset" value="Cancelar" styleClass="btn btn-light"/>
-                            
-                        </div>
-                    </div>
-                </div>
-            </div>
-            <div class="col-md-4"></div>
-        </h:form>
+                    <div class="col-md-4"></div>
+                </h:form>
 
 
 
 
                 <!-- AQUI COMIENZA LA CONSULTA  -->
-                 <!-- AQUI COMIENZA LA CONSULTA  -->
+                <!-- AQUI COMIENZA LA CONSULTA  -->
             </p:tab>
             <p:tab title="Consulta de Profesores">
                 <div>
 
 
 
-                    <h:form>      
-                        <p:dataTable id="Modificaciones"  paginatorPosition="top"             
+                    <h:form id="formConsultas">      
+                        <p:dataTable id="tablaProfesorBuscar"              
                                      var="pr" value="#{ProfesorUI.listaProfesor}" 
                                      emptyMessage="No hay datos relacionados"
                                      widgetVar="tablaProfesorBuscar"
@@ -139,17 +139,8 @@
                                 </p:outputPanel>
                             </f:facet>
 
-
-
-                            <p:column headerText="ID" styleClass="clean-row" >
-                                <p:cellEditor>
-                                    <f:facet name="output">
+                            <p:column headerText="ID" >                            
                                         <h:outputText value="#{pr.idProfesor}" />
-                                    </f:facet>
-                                    <f:facet name="input">
-                                        <h:inputText value="#{pr.idProfesor}" />
-                                    </f:facet>
-                                </p:cellEditor>
                             </p:column>
                             <p:column headerText="Nombre" styleClass="clean-row" >
                                 <p:cellEditor>
@@ -191,15 +182,9 @@
                                     </f:facet>
                                 </p:cellEditor>
                             </p:column>
-                            <p:column headerText="Unidad Académica" styleClass="clean-row" >
-                                <p:cellEditor>
-                                    <f:facet name="output">
+                            <p:column headerText="Unidad de Aprendizaje" filterBy="#{pr.unidadAprendizajeList}" filterable="true" filterMatchMode="contains">
                                         <h:outputText value="#{pr.unidadAprendizajeList}" />
-                                    </f:facet>
-                                    <f:facet name="input">
-                                        <h:inputText value="#{pr.unidadAprendizajeList}" />
-                                    </f:facet>
-                                </p:cellEditor>
+                                    
                             </p:column>
                             <p:column headerText="Editar" styleClass="clean-row">
                                 <p:rowEditor />
@@ -207,7 +192,7 @@
                             </p:column >
                             <p:column headerText="Eliminar" styleClass="clean-row" style="center" >
                                 <p:commandButton  icon="ui-icon-trash" title="Eliminar" oncomplete="PF('dialogoEliminar').show();" styleClass="boton-rojo " >
-                                    <f:setPropertyActionListener target="#{ProfesorUI.bajas()}" value="#{profesor}"/>
+                                    <f:setPropertyActionListener target="#{ProfesorUI.profesorSeleccion}" value="#{pr}"/>
                                 </p:commandButton>
                             </p:column>
                         </p:dataTable>
@@ -218,8 +203,8 @@
                     <p:dialog id="dlgEliminar" header="Eliminar Profesor" widgetVar="dialogoEliminar" resizable="false" showEffect="fade" hideEffect="explode" modal="true">
 
                         <h:outputText value="Desea eliminar este registro?"/>
-                        <p:commandButton  value="Si" actionListener="#{ProfesorUI.bajas(profesor)}"  oncomplete="PF('dialogoEliminar').hide();"/>
-                        <p:commandButton  value="No" onclick="PF('dialogoEliminar').hide();"/>
+                        <p:commandButton  value="Si" actionListener="#{ProfesorUI.bajas()}" oncomplete="PF('dialogoEliminar').hide();" />
+                        <p:commandButton  value="No" onclick="PF('dialogoEliminar').hide();" />
                     </p:dialog>
                 </h:form>
             </p:tab>

@@ -40,6 +40,11 @@ public class ProfesorHelper implements Serializable{
         return ServiceFacadeLocator.getInstanceFacadeProfesor().listaRFC();
         }
     
+       public List<Integer> busquedaB(String b){
+        return ServiceFacadeLocator.getInstanceFacadeProfesor().busquedaE(b);
+        }
+    
+      
     public void Bajas(Profesor profesor){
         ServiceFacadeLocator.getInstanceFacadeProfesor().bajasProfesor(profesor);
     }

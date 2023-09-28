@@ -29,13 +29,33 @@ import mx.desarrollo.helper.ProfesorHelper;
     private ProfesorHelper profesorHelper = new ProfesorHelper();
     private Profesor profesor;
     private List<Profesor> listaProfesor = new ArrayList<>();
-    private Profesor Profesorfiltrado;
+    private List<Profesor> Profesorfiltrado = new ArrayList<>() ;
+    private String b;
     private Profesor ProfesorSeleccion;
     private List<Integer> listaID = new ArrayList<>();
     private List<String> listaRFC = new ArrayList<>();
     private List<String> seleccion = new ArrayList<>();
     private List<Integer> seleccionId = new ArrayList<>();
 
+    public List<Profesor> getProfesorfiltrado() {
+        return Profesorfiltrado;
+    }
+
+    public void setProfesorfiltrado(List<Profesor> Profesorfiltrado) {
+        this.Profesorfiltrado = Profesorfiltrado;
+    }
+
+    
+    
+    public String getB() {
+        return b;
+    }
+
+    public void setB(String b) {
+        this.b = b;
+    }
+
+    
     public List<Profesor> getListaProfesor() {
         return listaProfesor;
     }
@@ -52,14 +72,6 @@ import mx.desarrollo.helper.ProfesorHelper;
         this.ProfesorSeleccion = ProfesorSeleccion;
     }
 
-    public Profesor getProfesorfiltrado() {
-        return Profesorfiltrado;
-    }
-
-    public void setProfesorfiltrado(Profesor Profesorfiltrado) {
-        this.Profesorfiltrado = Profesorfiltrado;
-    }
-
     public List<String> getSeleccion() {
         return seleccion;
     }
@@ -71,14 +83,13 @@ import mx.desarrollo.helper.ProfesorHelper;
     
     public ProfesorBeanUI() {
         inicializar();
-        //List<Profesor> Prueba = new ArrayList();
-        //Prueba = listaProfesor;
-        /*for(int x = 0; x <listaID.size();x++){
-            System.out.println(listaID.get(x));
-        }
-        for(UnidadAprendizaje UA: seleccion){
-        seleccionId.add(UA.getIdUnidadAprendizaje());
+        /*b = "Calculo";
+        List<Integer> Prueba = new ArrayList();
+        Prueba = profesorHelper.busquedaB(b);
+        for(int x = 0; x <Prueba.size();x++){
+            System.out.println(Prueba.get(x));
         }*/
+        
     }
 
     public Profesor getProfesor() {
@@ -103,7 +114,6 @@ import mx.desarrollo.helper.ProfesorHelper;
     FacesContext.getCurrentInstance().addMessage(null, new FacesMessage(FacesMessage.SEVERITY_INFO, "Con Éxito", "Se eliminó correctamente"));
     inicializar();
     }
-
     
     public boolean validarAltas(){        
         int i=0;
@@ -135,6 +145,8 @@ import mx.desarrollo.helper.ProfesorHelper;
         return aux;
 } 
    public void inicializar() {
+     
+       busqueda();
         profesor = new Profesor();
         listaProfesor = profesorHelper.Mostrar();
         ProfesorSeleccion = new Profesor();
@@ -150,4 +162,8 @@ import mx.desarrollo.helper.ProfesorHelper;
    profesor.setUnidadAprendizajeList(unidad);
    }
    
+   
+   public void busqueda(){
+       System.out.println(b + "++++++++++++++++++++++++++++++++++++++++++++++++" );
+   }
 }
