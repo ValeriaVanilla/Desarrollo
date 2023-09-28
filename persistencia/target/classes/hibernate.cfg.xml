@@ -22,8 +22,6 @@ jdbc:mysql://localhost:3307/desarrollo?zeroDateTimeBehavior=convertToNull
 <property name="c3p0.min_size">5</property> 
 <property name="c3p0.timeout">100</property> 
 <!-- Nota: Aqui deben ir todas las entidades que se formaron de su base de datos  en este caso se crearon las siguiente --> 
-<mapping class="mx.desarrollo.entidad.Administrador"/> 
-<mapping class="mx.desarrollo.entidad.Usuario"/> 
 <mapping class="mx.desarrollo.entidad.Profesor"/> 
 <mapping class="mx.desarrollo.entidad.UnidadAprendizaje"/> 
 </session-factory> 

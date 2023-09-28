@@ -6,7 +6,7 @@ import javax.persistence.metamodel.SingularAttribute;
 import javax.persistence.metamodel.StaticMetamodel;
 import mx.desarrollo.entidad.UnidadAprendizaje;
 
-@Generated(value="EclipseLink-2.5.2.v20140319-rNA", date="2023-09-27T19:55:43")
+@Generated(value="EclipseLink-2.5.2.v20140319-rNA", date="2023-09-28T09:35:05")
 @StaticMetamodel(Profesor.class)
 public class Profesor_ { 
 

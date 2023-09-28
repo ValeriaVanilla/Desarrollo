@@ -7,8 +7,6 @@ package test;
 
 import java.util.ArrayList;
 import java.util.List;
-import mx.desarrollo.DAO.UsuarioDAO;
-import mx.desarrollo.entidad.Usuario;
 import mx.desarrollo.DAO.ProfesorDAO;
 import mx.desarrollo.entidad.Profesor;
 import mx.desarrollo.DAO.UnidadAprendizajeDAO;
@@ -20,12 +18,6 @@ import mx.desarrollo.entidad.UnidadAprendizaje;
  */
 public class test {
     public static void main(String[] args) {
-        List<Usuario> listaUsuarios = new ArrayList<>();
-        UsuarioDAO usuarioDao = new UsuarioDAO();
-        listaUsuarios = usuarioDao.findAll();
-        
-        for(Usuario us : listaUsuarios){
-            System.out.println("Correo: " + us.getCorreo());
             
         List<Profesor> listaProfesor = new ArrayList<>();
         ProfesorDAO profesorDAo = new ProfesorDAO();
@@ -36,4 +28,4 @@ public class test {
         }
         }
     }
-}
+

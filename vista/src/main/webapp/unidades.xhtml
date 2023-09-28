@@ -1,0 +1,177 @@
+<?xml version='1.0' encoding='UTF-8' ?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:h="http://xmlns.jcp.org/jsf/html"
+      xmlns:p="http://primefaces.org/ui"
+
+      xmlns:f="http://xmlns.jcp.org/jsf/core">
+    <h:head>
+        <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.3.1/dist/css/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous"></link>
+        <link href="style.css" rel="stylesheet" type="text/css"/>
+
+
+        <title>Registro de Unidades de Aprendizaje</title>
+    </h:head>
+
+
+    <h:body>
+        <nav class="navbar navbar-expand-lg navbar-dark bg-primary" >
+            <ul class="nav navbar-nav">
+                <li class="nav-item ">
+                    <a class="nav-link" href="./index.xhtml">Black Class </a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link" href="./index.xhtml">Inicio</a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link" href="./profesores.xhtml">Profesores</a>
+                </li>
+                <li class="nav-item">
+                    <b><b>  <a class="nav-link" href="./unidades.xhtml">Unidades de Aprendizaje</a></b></b>
+                </li> 
+            </ul> 
+            
+        </nav>
+
+        <div class="d-flex justify-content-center align-items-center">
+            <div class="alert alert-dismissible alert-light" >
+                <div class="d-flex justify-content-center align-items-center" >
+                    <h5 class="alert-heading" > Unidades de Aprendizajes</h5></div>
+                <h6 class="mb-0">Registro y Consulta </h6>
+            </div> 
+        </div>
+        <p:tabView>
+            <p:tab title="Resgisto de Unidades de Aprendizajes">
+                <h:form >
+                    <div class="col-md-4"></div>
+                    <div class="col-md-18">
+                        <div class="card">
+                            <div class="card-header">
+
+                                <h:outputText value="* Campos Obligatorios" />
+
+                            </div>
+                            <div class="card-body">
+                                <p:messages id="messages" showDetail="true" showSummary="true" autoUpdate="true" closable="true" />
+
+                                <div class="form-group">
+                                    <p:outputLabel for="IdUnidad" value="ID Unidad de Aprendizaje:"/> <br/>
+                                    <p:inputText id="IdUnidad" value="#{UnidadAprendizajeUI.unidadAprendizaje.idUnidadAprendizaje}" placeholder="Ingresa ID Ejem.12345" required="true"/>
+                                    <p:keyFilter regEx="/^\d+$/" />
+                                </div>
+
+                                <div class="form-group">
+                                    <p:outputLabel for="nombre" value="Nombre Unidad de Aprendizaje:"/> <br/>
+                                    <p:inputText id="nombre" value="#{UnidadAprendizajeUI.unidadAprendizaje.nombreUnidad}" placeholder="Ingresa Nombre de Unidad de Aprendizaje" required="true"/>
+                                </div>
+
+                                <div class="form-group">
+                                    <p:outputLabel for="HoraClase" value="Horas de Clase:"/><br/>
+                                    <p:inputText id="HoraClase" value="#{UnidadAprendizajeUI.unidadAprendizaje.horaC}" placeholder="00:00" required="true"/>
+                                </div>
+
+                                <div class="form-group">
+                                    <p:outputLabel for="horaTaller" value="Horas de Taller:"/><br/>
+                                    <p:inputText id="horaTaller" value="#{UnidadAprendizajeUI.unidadAprendizaje.horaT}" placeholder="00:00" required="true"/>
+                                </div>
+
+                                <div class="form-group">
+                                    <p:outputLabel for="horaLaboratorio" value="Horas de Laboratorio:"/> <br/>
+                                    <p:inputText id="horaLaboratorio" value="#{UnidadAprendizajeUI.unidadAprendizaje.horaL}" placeholder="00:00" required="true"/>
+                                </div>
+
+
+                                <div class="btn-group" role="group" aria-label="">
+                                    <p:commandButton type="submit" value="Registrar" action="#{UnidadAprendizajeUI.guardar()}" update="messages" styleClass="btn btn-warning" oncomplete="PF('dialogNuevoAlumno').hide();"/>
+                                    <p:commandButton type="reset" value="Cancelar" styleClass="btn btn-light"/>
+
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col-md-4"></div>
+                </h:form>
+
+
+
+
+            </p:tab>
+            <p:tab title="Consulta de Unidades de Aprendizajes">
+                <h:form>  
+                <p:dataTable>
+                  <p:column headerText="ID Unidad" styleClass="clean-row" >
+                                <p:cellEditor>
+                                    <f:facet name="output">
+                                        <h:outputText value="#{pr.idProfesor}" />
+                                    </f:facet>
+                                    <f:facet name="input">
+                                        <h:inputText value="#{pr.idProfesor}" />
+                                    </f:facet>
+                                </p:cellEditor>
+                            </p:column>
+                            <p:column headerText="Nombre Unidad" styleClass="clean-row" >
+                                <p:cellEditor>
+                                    <f:facet name="output">
+                                        <h:outputText value="#{pr.nombre}" />
+                                    </f:facet>
+                                    <f:facet name="input">
+                                        <h:inputText value="#{pr.nombre}" />
+                                    </f:facet>
+                                </p:cellEditor>
+                            </p:column>
+                            <p:column headerText="Horas Clase" styleClass="clean-row" >
+                                <p:cellEditor>
+                                    <f:facet name="output">
+                                        <h:outputText value="#{pr.apP}" />
+                                    </f:facet>
+                                    <f:facet name="input">
+                                        <h:inputText value="#{pr.apP}" />
+                                    </f:facet>
+                                </p:cellEditor>
+                            </p:column>
+                            <p:column headerText="Horas Taller" styleClass="clean-row" >
+                                <p:cellEditor>
+                                    <f:facet name="output">
+                                        <h:outputText value="#{pr.apM}" />
+                                    </f:facet>
+                                    <f:facet name="input">
+                                        <h:inputText value="#{pr.apM}" />
+                                    </f:facet>
+                                </p:cellEditor>
+                            </p:column>
+                            <p:column headerText="Horas Laboratorio" styleClass="clean-row" >
+                                <p:cellEditor>
+                                    <f:facet name="output">
+                                        <h:outputText value="#{pr.rfc}" />
+                                    </f:facet>
+                                    <f:facet name="input">
+                                        <h:inputText value="#{pr.rfc}" />
+                                    </f:facet>
+                                </p:cellEditor>
+                            </p:column>
+                            
+                        </p:dataTable>
+                    </h:form>
+
+              
+                <h:form id="formEliminar">
+                    <p:dialog id="dlgEliminar" header="Eliminar Profesor" widgetVar="dialogoEliminar" resizable="false" showEffect="fade" hideEffect="explode" modal="true">
+
+                        <h:outputText value="Desea eliminar este registro?"/>
+                        <p:commandButton  value="Si" actionListener="#{ProfesorUI.bajas(profesor)}"  oncomplete="PF('dialogoEliminar').hide();"/>
+                        <p:commandButton  value="No" onclick="PF('dialogoEliminar').hide();"/>
+                    </p:dialog>
+                </h:form>
+            </p:tab>
+
+        </p:tabView>
+                
+                
+                
+                
+                
+                
+         
+
+    </h:body>
+</html>

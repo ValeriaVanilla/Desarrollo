@@ -5,8 +5,6 @@
  */
 package mx.desarrollo.integracion;
 
-import mx.desarrollo.DAO.AdministradorDAO;
-import mx.desarrollo.DAO.UsuarioDAO;
 import mx.desarrollo.DAO.ProfesorDAO;
 import mx.desarrollo.DAO.UnidadAprendizajeDAO;
 
@@ -17,32 +15,9 @@ import mx.desarrollo.DAO.UnidadAprendizajeDAO;
  */
 public class ServiceLocator {
     
-    private static AdministradorDAO administradorDAO;
-    private static UsuarioDAO usuarioDAO;
+ 
     private static ProfesorDAO profesorDAO;
     private static UnidadAprendizajeDAO unidadaprendizajeDAO;
-    /**
-     * se crea la instancia para Administrador DAO si esta no existe
-     */
-    public static AdministradorDAO getInstanceAdministradorDAO(){
-        if(administradorDAO == null){
-            administradorDAO = new AdministradorDAO();
-            return administradorDAO;
-        } else{
-            return administradorDAO;
-        }
-    }
-    /**
-     * se crea la instancia de usuarioDAO si esta no existe
-     */
-    public static UsuarioDAO getInstanceUsuarioDAO(){
-        if(usuarioDAO == null){
-            usuarioDAO = new UsuarioDAO();
-            return usuarioDAO;
-        } else{
-            return usuarioDAO;
-        }
-    }
     
     /**
      * se crea la instancia de ProfesorDAO si esta no existe

@@ -3,85 +3,73 @@
 <html xmlns="http://www.w3.org/1999/xhtml"
       xmlns:h="http://xmlns.jcp.org/jsf/html"
       xmlns:p="http://primefaces.org/ui"
-      >
-   <h:head>
-       <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.3.1/dist/css/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous"></link>
+
+
+      xmlns:f="http://xmlns.jcp.org/jsf/core">
+    <h:head>
+        <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.3.1/dist/css/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous"></link>
         <link href="style.css" rel="stylesheet" type="text/css"/>
-       
-       
-    <title>Black Class</title>
-</h:head>
-    
-    
-<h:body>
-    <nav class="navbar navbar-expand-lg navbar-dark bg-success">
-     <ul class="nav navbar-nav">
-         <li class="nav-item ">
-             <a class="nav-link" href="./index.xhtml">Black Class </a>
-         </li>
-         <li class="nav-item">
-             <b> <a class="nav-link" href="./index.xhtml">Inicio</a></b>
-         </li>
-         <li class="nav-item">
-             <a class="nav-link" href="./menuR.xhtml">Registro</a>
-         </li>
-         <li class="nav-item">
-             <a class="nav-link" href="./menuC.xhtml">Consultas</a>
-         </li> 
-         <li class="nav-item">
-             <a class="nav-link" href="./modificaciones.xhtml">Modificaciones</a>
-         </li> 
-     </ul> 
-        <ul class="nav navbar-nav ml-auto">
-        <li class="nav-item">
-            <a class="nav-link" href="">Cerrar Sesión</a>
-        </li>
-        </ul>
- </nav>
- 
-    <br/><br/><br/>
-  <div class="container">
-        <div class="row justify-content-center align-items-center">
-            <div class="col-md-3">
-                <div class="card">
-                   <p:graphicImage  class="card-img-top" url="resources/edit.png" alt="" />
-                    <div class="card-body">
-                        <h5 class="card-title">Registrar</h5>
-                        <p class="card-text">Registro de Unidades Académicas y Profesores</p>
-                        <a href="./menuR.xhtml" class="btn btn-warning">Ingresar</a>
-                    </div>
-                </div>
-            </div>
-            <div class="col-md-3">
-                <div class="card">
-                    <p:graphicImage class="card-img-top" url="resources/magnifier.png" alt="" width="70%"/>
-                    <div class="card-body">
-                        <h5 class="card-title">Consultas</h5>
-                        <p class="card-text">Presenta los datos de todos los profesores registrados</p>
-                       <a href="./menuC.xhtml" class="btn btn-warning">Ingresar</a>
+        <link href="bootstrap.min.css" rel="stylesheet" type="text/css"/>
+        <style>
 
-                    </div>
+
+        </style>
+        <title>Inicio</title>
+    </h:head>
+    <body>
+        <nav class="navbar navbar-expand-lg navbar-dark bg-primary" >
+            <ul class="nav navbar-nav">
+                <li class="nav-item ">
+                    <a class="nav-link" href="./index.xhtml">Black Class </a>
+                </li>
+                <li class="nav-item">
+                    <b><b>     <a class="nav-link" href="./index.xhtml">Inicio</a></b></b>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link" href="./profesores.xhtml">Profesores</a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link" href="./unidades.xhtml">Unidades de Aprendizaje</a>
+                </li> 
+            </ul>
+        </nav>
+        <div class="d-flex justify-content-center align-items-center">
+            <div class="alert alert-dismissible alert-light" >
+                <div class="d-flex justify-content-center align-items-center" >
+                    <h1 class="alert-heading" > ¡Bienvenido!</h1></div>
+                <h3 class="mb-0">al Sistema de Gestión Educativa </h3>
+            </div> 
+        </div>
+        <br/><br/><br/>
+
+        <div class="container">
+            <div class="row justify-content-center align-items-center">
+                <div class="col-md-6">
+
+                    <a href="./profesores.xhtml" style="text-decoration: none;"> 
+                        <div class="card text-white bg-primary mb-4" style="max-width: 40rem;">
+                            <div class="card-header">
+                                <p:graphicImage url="resources/Profesores.png" class="logo" />
+                           </div>
+                            <div class="card-body">
+                                <h4 class="card-title">Profesores</h4>
+                                <p class="card-text">Aqui puedes registrar tus profesores, consultarlos , modificarlos y eliminarlos </p>
+                            </div>
+                        </div>
+                    </a>
+                    <br/>
+                    <a href="./unidades.xhtml" style="text-decoration: none;"> 
+                        <div class="card text-white bg-primary mb-4" style="max-width: 40rem;">
+                            <div class="card-header">
+                                <p:graphicImage url="resources/Unidades.png" class="logo" />
+                            </div>
+                            <div class="card-body">
+                                <h4 class="card-title">Unidades de Aprendizaje</h4>
+                                <p class="card-text">Aqui puedes registrar tus materias y poder consultarlas</p>
+                            </div> 
+                        </div> </a>
                 </div>
             </div>
-            
-            <div class="col-md-3">
-                <div class="card">
-                   <p:graphicImage class="card-img-top" url="resources/consulta.png" alt=""/>
-                    <div class="card-body">
-                        <h5 class="card-title">Modificaciones</h5>
-                        <p class="card-text">Realiza la modificación de un profesor</p>
-                        <a href="./modificaciones.xhtml" class="btn btn-warning">Ingresar</a>
-                    </div>
-                </div>
-            </div>
-            
         </div>
-       
-      
-        </div>
-      
-      
-   
-</h:body>
+    </body>
 </html>
-
