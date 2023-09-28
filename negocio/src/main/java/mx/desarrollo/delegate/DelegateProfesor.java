@@ -32,4 +32,15 @@ public class DelegateProfesor {
     public void BajasProfesor(Profesor profesor){
     ServiceLocator.getInstanceProfesorDAO().delete(profesor);
     }
+    
+      public List<Integer> listaID(){
+           return ServiceLocator.getInstanceProfesorDAO().findID();
+              
+}
+       public List<String> listaRFC(){
+           return ServiceLocator.getInstanceProfesorDAO().findRFC();
+              
+}
+      
+    
 }

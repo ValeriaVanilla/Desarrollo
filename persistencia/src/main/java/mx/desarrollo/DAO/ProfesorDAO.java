@@ -41,4 +41,42 @@ public class ProfesorDAO extends AbstractDAO<Integer, Profesor> {
         }
         return objects;
     }
+   
+      public List<Integer> findID() {
+        System.out.println("FindID ----------");
+        List<Integer> objects = null;
+        try {
+            HibernateUtil.getSession();
+            HibernateUtil.beingTransaccion();
+            Query query = HibernateUtil.getSession().createQuery("SELECT p.idProfesor FROM Profesor p");
+            objects = query.list();
+
+        } catch (HibernateException e) {
+            HibernateUtil.rollbackTransaction();
+        } finally {
+            HibernateUtil.closeSession();
+        }
+        return objects;
+    }
+      
+      
+      public List<String> findRFC() {
+        System.out.println("FindRFC ----------");
+        List<String> objects = null;
+        try {
+            HibernateUtil.getSession();
+            HibernateUtil.beingTransaccion();
+            Query query = HibernateUtil.getSession().createQuery("SELECT p.rfc FROM Profesor p");
+            objects = query.list();
+
+        } catch (HibernateException e) {
+            HibernateUtil.rollbackTransaction();
+        } finally {
+            HibernateUtil.closeSession();
+        }
+        return objects;
+    }
 }
+
+
+

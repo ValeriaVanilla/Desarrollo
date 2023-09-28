@@ -9,6 +9,7 @@ import java.io.IOException;
 import java.io.Serializable;
 import java.util.ArrayList;
 import java.util.List;
+import java.util.Objects;
 import javax.annotation.PostConstruct;
 import javax.faces.application.FacesMessage;
 import javax.faces.bean.ManagedBean;
@@ -25,11 +26,13 @@ import mx.desarrollo.helper.ProfesorHelper;
 @ManagedBean(name = "ProfesorUI")
 @SessionScoped
     public class ProfesorBeanUI implements Serializable{
-    private ProfesorHelper profesorHelper;
+    private ProfesorHelper profesorHelper = new ProfesorHelper();
     private Profesor profesor;
     private List<Profesor> listaProfesor = new ArrayList<>();
     private Profesor Profesorfiltrado;
     private Profesor ProfesorSeleccion;
+    private List<Integer> listaID = new ArrayList<>();
+    private List<String> listaRFC = new ArrayList<>();
    // private List<UnidadAprendizaje> seleccion = new ArrayList<>();
    // private List<Integer> seleccionId = new ArrayList<>();
 
@@ -71,16 +74,12 @@ import mx.desarrollo.helper.ProfesorHelper;
     
     
     public ProfesorBeanUI() {
-        profesorHelper = new ProfesorHelper();
-        profesor = new Profesor();
-        listaProfesor = profesorHelper.Mostrar();
-        ProfesorSeleccion = new Profesor();
-      
-        List<Profesor> Prueba = new ArrayList();
-        Prueba = listaProfesor;
-        for(int x = 0; x <listaProfesor.size()- 1;x++){
-            System.out.println(Prueba.get(x));
-        }
+        inicializar();
+        //List<Profesor> Prueba = new ArrayList();
+        //Prueba = listaProfesor;
+        /*for(int x = 0; x <listaID.size();x++){
+            System.out.println(listaID.get(x));
+        }*/
        /* for(UnidadAprendizaje UA: seleccion){
         seleccionId.add(UA.getIdUnidadAprendizaje());
         }*/
@@ -94,20 +93,42 @@ import mx.desarrollo.helper.ProfesorHelper;
         this.profesor = profesor;
     }
     
-    public void guardar(){
-    profesorHelper.Altas(profesor.getIdProfesor(), profesor.getNombre(), profesor.getApP(), profesor.getApM(), profesor.getRfc());
-    FacesContext.getCurrentInstance().addMessage(null, new FacesMessage(FacesMessage.SEVERITY_INFO, "Con Éxito", "Registrado correctamente"));
-    profesor = new Profesor();
-    
+    public void guardar(){        
+        if(validarAltas()) {            
+                profesorHelper.Altas(profesor.getIdProfesor(), profesor.getNombre(), profesor.getApP(), profesor.getApM(), profesor.getRfc());
+                FacesContext.getCurrentInstance().addMessage(null, new FacesMessage(FacesMessage.SEVERITY_INFO, "Con Éxito", "Registrado correctamente"));
+                inicializar();             
+        }                 
     }
     
     public void bajas(){
     profesorHelper.Bajas(ProfesorSeleccion);
     FacesContext.getCurrentInstance().addMessage(null, new FacesMessage(FacesMessage.SEVERITY_INFO, "Con Éxito", "Se eliminó correctamente"));
-    listaProfesor = profesorHelper.Mostrar();
-    ProfesorSeleccion = new Profesor();
+    inicializar();
     }
+
     
-   
+    public boolean validarAltas(){        
+        for(int z: listaID){        
+            if(z == profesor.getIdProfesor()){
+                FacesContext.getCurrentInstance().addMessage(null, new FacesMessage(FacesMessage.SEVERITY_ERROR, "ERROR", "Ese ID ya se encuentra en uso"));                         
+                return false;
+            }
+        }
+        for(String y: listaRFC){
+            if(y.equals(profesor.getRfc())){ 
+                FacesContext.getCurrentInstance().addMessage(null, new FacesMessage(FacesMessage.SEVERITY_ERROR, "ERROR", "Ese RFC ya se encuentra registrado"));                                        
+                return false;
+            }                         
+        }
+        return true;
+} 
+   public void inicializar() {
+        profesor = new Profesor();
+        listaProfesor = profesorHelper.Mostrar();
+        ProfesorSeleccion = new Profesor();
+        listaID = profesorHelper.listaID();
+        listaRFC = profesorHelper.listaRFC();
+   }
 
 }

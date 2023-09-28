@@ -30,6 +30,14 @@ public class FacadeProfesor {
     return delegateProfesor.MostrarProfesor();
     }
     
+     public List<Integer> listaID(){
+    return delegateProfesor.listaID();
+    }
+     
+    public List<String> listaRFC(){
+    return delegateProfesor.listaRFC();
+    }
+    
     public void bajasProfesor(Profesor profesor){
         delegateProfesor.BajasProfesor(profesor);
     }
