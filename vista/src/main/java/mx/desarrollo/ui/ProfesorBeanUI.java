@@ -130,6 +130,11 @@ import mx.desarrollo.helper.ProfesorHelper;
                 aux= false;
             }                         
         }
+        if (profesor.getRfc() != null && profesor.getRfc().length() != 13) {
+        FacesContext.getCurrentInstance().addMessage(null, new FacesMessage(FacesMessage.SEVERITY_ERROR, "ERROR", "El RFC debe de contener 13 caracteres"));
+        i=i+4;                                 
+        aux = false;
+    }
         
         switch(i) {
             case 1:
@@ -141,17 +146,23 @@ import mx.desarrollo.helper.ProfesorHelper;
             case 3:
                 FacesContext.getCurrentInstance().addMessage(null, new FacesMessage(FacesMessage.SEVERITY_ERROR, "ERROR", "Esos ID y RFC ya se encuentran registrados"));                       
                 break;
+            case 4:
+                FacesContext.getCurrentInstance().addMessage(null, new FacesMessage(FacesMessage.SEVERITY_ERROR, "ERROR", "El RFC debe de contener 13 caracteres"));
+                break;
+            case 5:
+                FacesContext.getCurrentInstance().addMessage(null, new FacesMessage(FacesMessage.SEVERITY_ERROR, "ERROR", "El ID se encuentra repetido y el RFC debe de contener 13 caracteres"));
+                break;
         }
         return aux;
 } 
    public void inicializar() {
-     
-       busqueda();
+       
         profesor = new Profesor();
         listaProfesor = profesorHelper.Mostrar();
         ProfesorSeleccion = new Profesor();
         listaID = profesorHelper.listaID();
         listaRFC = profesorHelper.listaRFC();
+         
    }
 
    public void AsignarUnidades(){
@@ -163,7 +174,9 @@ import mx.desarrollo.helper.ProfesorHelper;
    }
    
    
-   public void busqueda(){
-       System.out.println(b + "++++++++++++++++++++++++++++++++++++++++++++++++" );
+   public void Modificar(){
+   profesorHelper.Modificar(ProfesorSeleccion);
    }
+   
+   
 }

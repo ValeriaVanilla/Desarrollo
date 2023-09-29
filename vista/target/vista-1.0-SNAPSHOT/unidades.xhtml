@@ -42,7 +42,7 @@
         </div>
         <p:tabView>
             <p:tab title="Resgisto de Unidades de Aprendizajes">
-                <h:form >
+                <h:form id="formU" >
                     <div class="col-md-4"></div>
                     <div class="col-md-18">
                         <div class="card">
@@ -82,7 +82,7 @@
 
 
                                 <div class="btn-group" role="group" aria-label="">
-                                    <p:commandButton type="submit" value="Registrar" action="#{UnidadAprendizajeUI.guardar()}" update="messages" styleClass="btn btn-warning" oncomplete="PF('dialogNuevoAlumno').hide();"/>
+                                    <p:commandButton type="submit" value="Registrar" action="#{UnidadAprendizajeUI.guardar()}" update="formU" styleClass="btn btn-warning" oncomplete="PF('dialogNuevoAlumno').hide();"/>
                                     <p:commandButton type="reset" value="Cancelar" styleClass="btn btn-light"/>
 
                                 </div>
@@ -98,54 +98,54 @@
             </p:tab>
             <p:tab title="Consulta de Unidades de Aprendizajes">
                 <h:form>  
-                <p:dataTable>
+                    <p:dataTable var="ua" value="#{UnidadAprendizajeUI.listaUnidad}">
                   <p:column headerText="ID Unidad" styleClass="clean-row" >
                                 <p:cellEditor>
                                     <f:facet name="output">
-                                        <h:outputText value="#{pr.idProfesor}" />
+                                        <h:outputText value="#{ua.idUnidadAprendizaje}" />
                                     </f:facet>
                                     <f:facet name="input">
-                                        <h:inputText value="#{pr.idProfesor}" />
+                                        <h:inputText value="#{ua.idUnidadAprendizaje}" />
                                     </f:facet>
                                 </p:cellEditor>
                             </p:column>
                             <p:column headerText="Nombre Unidad" styleClass="clean-row" >
                                 <p:cellEditor>
                                     <f:facet name="output">
-                                        <h:outputText value="#{pr.nombre}" />
+                                        <h:outputText value="#{ua.nombreUnidad}" />
                                     </f:facet>
                                     <f:facet name="input">
-                                        <h:inputText value="#{pr.nombre}" />
+                                        <h:inputText value="#{ua.nombreUnidad}" />
                                     </f:facet>
                                 </p:cellEditor>
                             </p:column>
                             <p:column headerText="Horas Clase" styleClass="clean-row" >
                                 <p:cellEditor>
                                     <f:facet name="output">
-                                        <h:outputText value="#{pr.apP}" />
+                                        <h:outputText value="#{ua.horaC}" />
                                     </f:facet>
                                     <f:facet name="input">
-                                        <h:inputText value="#{pr.apP}" />
+                                        <h:inputText value="#{ua.horaC}" />
                                     </f:facet>
                                 </p:cellEditor>
                             </p:column>
                             <p:column headerText="Horas Taller" styleClass="clean-row" >
                                 <p:cellEditor>
                                     <f:facet name="output">
-                                        <h:outputText value="#{pr.apM}" />
+                                        <h:outputText value="#{ua.horaT}" />
                                     </f:facet>
                                     <f:facet name="input">
-                                        <h:inputText value="#{pr.apM}" />
+                                        <h:inputText value="#{ua.horaT}" />
                                     </f:facet>
                                 </p:cellEditor>
                             </p:column>
                             <p:column headerText="Horas Laboratorio" styleClass="clean-row" >
                                 <p:cellEditor>
                                     <f:facet name="output">
-                                        <h:outputText value="#{pr.rfc}" />
+                                        <h:outputText value="#{ua.horaL}" />
                                     </f:facet>
                                     <f:facet name="input">
-                                        <h:inputText value="#{pr.rfc}" />
+                                        <h:inputText value="#{ua.horaL}" />
                                     </f:facet>
                                 </p:cellEditor>
                             </p:column>
@@ -153,15 +153,6 @@
                         </p:dataTable>
                     </h:form>
 
-              
-                <h:form id="formEliminar">
-                    <p:dialog id="dlgEliminar" header="Eliminar Profesor" widgetVar="dialogoEliminar" resizable="false" showEffect="fade" hideEffect="explode" modal="true">
-
-                        <h:outputText value="Desea eliminar este registro?"/>
-                        <p:commandButton  value="Si" actionListener="#{ProfesorUI.bajas(profesor)}"  oncomplete="PF('dialogoEliminar').hide();"/>
-                        <p:commandButton  value="No" onclick="PF('dialogoEliminar').hide();"/>
-                    </p:dialog>
-                </h:form>
             </p:tab>
 
         </p:tabView>

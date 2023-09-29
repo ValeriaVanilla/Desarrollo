@@ -44,5 +44,9 @@ public class DelegateProfesor {
        public List<Integer> busquedaE(String b){
            return ServiceLocator.getInstanceProfesorDAO().busquedaE(b);
        }  
+       
+       public void modificar(Profesor p){
+       ServiceLocator.getInstanceProfesorDAO().update(p);
+       }
     
 }

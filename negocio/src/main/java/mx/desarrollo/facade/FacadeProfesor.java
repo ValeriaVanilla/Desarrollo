@@ -46,4 +46,8 @@ public class FacadeProfesor {
         delegateProfesor.BajasProfesor(profesor);
     }
     
+    public void Modificar(Profesor p){
+        delegateProfesor.modificar(p);
+    }
+    
 }
